@@ -1,0 +1,12 @@
+.hidden {display:none;}
+#app-area, .holo-actionBar-inside {margin:0 auto; width:90%;}
+.holo-actionBar-title {display:inline-block; font-size:11pt; font-weight:normal;}
+#app-data-area, #app-results-area {width:100%;}
+@media (min-width: 768px) {
+  #app-data-area, #app-results-area {width:46%;}
+  #app-data-area {float:left;}
+  #app-results-area {float:right;}
+}
+
+.button {text-align: right;}
+.button input {display: inline-block;}
