@@ -8,5 +8,7 @@
   #app-results-area {float:right;}
 }
 
+.campo-x, .campo-y {width:80px;}
+
 .button {text-align: right;}
 .button input {display: inline-block;}
