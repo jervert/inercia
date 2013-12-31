@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.inercia" versionCode="1" version="1.0.0.0">
+    <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.inercia" versionCode="2" version="1.0.0.1">
 
     <!-- versionCode is optional and Android only -->
 
@@ -32,7 +32,7 @@
 
     
     
-    <!--preference name="permissions" value="none"/-->
+    <preference name="permissions" value="none"/>
     <preference name="orientation" value="default" />
     <preference name="splash-screen-duration" value="2000" />
     <preference name="phonegap-version" value="2.9.0" />
