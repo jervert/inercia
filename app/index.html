@@ -2,74 +2,73 @@
 
 <html lang="es">
 <head>
-	<meta charset="utf-8" />
+  <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-	<title>Inercia</title>
+  <title>Inercia</title>
 
-	<link rel="stylesheet" media="screen" href="assets/css/holo-base-elements.css" />
-	<link rel="stylesheet" media="screen" href="assets/css/holo-light-elements.css" />
-	<link rel="stylesheet" media="screen" href="assets/css/holo-base-widgets.css" />
-	<link rel="stylesheet" media="screen" href="assets/css/holo-light-widgets.css" />
-	<link rel="stylesheet" media="screen" href="assets/css/main.css" />
+  <link rel="stylesheet" media="screen" href="assets/css/holo-base-elements.css" />
+  <link rel="stylesheet" media="screen" href="assets/css/holo-light-elements.css" />
+  <link rel="stylesheet" media="screen" href="assets/css/holo-base-widgets.css" />
+  <link rel="stylesheet" media="screen" href="assets/css/holo-light-widgets.css" />
+  <link rel="stylesheet" media="screen" href="assets/css/main.css" />
 </head>
 <body>
 
 <div id="app-area">
-	<header id="app-header" class="holo-actionBar">
-		<div class="holo-actionBar-inside"><h1 class="holo-actionBar-title">Inercia</h1></div>
-	</header>
+  <header id="app-header-area" class="holo-actionBar"></header>
 
-	<section id="app-body">
-		
-				
-		<div id="app-data-area">	
-			<!--div class="mensaje mensaje-error" id="error-campos-numericos">
-				<p>Todos los campos deben contener un número</p>
-			</div-->
-			<p class="clear"><label><span>Número de vértices:</span><input type="number" min="3" id="c_numero_vertices" value="" step="1" required="required" value="3" /></label><input type="button" value="Aplicar" id="inercia-boton-iniciar" /></p>
-					
-			<table>
-				<col width="20%" />
-				<col width="40%" />
-				<col width="40%" />
-				<caption>Vértices</caption>
-				
-				<thead>
-					
-					<tr>
-						<th scope="col">Nudo</th>
-						<th scope="col">X</th>
-						<th scope="col">Y</th>
-					</tr>
-					
-				</thead>
-				
-				<tbody>
-					<tr>
-						<th scope="row"><span class="numero">N</span></th>
-						<td><label for="c_campo_vertice_x_"><span class="hidden">Nudo <span class="numero">N</span>, coordenada X</span><input type="number" id="c_campo_vertice_x_" class="campo-x" /></label></td>
-						<td><label for="c_campo_vertice_y_"><span class="hidden">Nudo <span class="numero">N</span>, coordenada Y</span><input type="number" id="c_campo_vertice_y_" class="campo-y" /></label></td>
-					</tr>
-				</tbody>
-			</table>
-			<p class="button"><input type="button" value="Calcular" id="inercia-calculate-button" /></p>	
-		</div>
-		<div id="app-results-area">
-			<h2>Resultados</h2>
-			<ul>
-				<li><b>Xg =</b> <span id="resultado-xg">-</span></li>
-				<li><b>Yg =</b> <span id="resultado-yg">-</span></li>
-				<li><b>S =</b> <span id="resultado-s">-</span></li>
-				<li><b>Ix =</b> <span id="resultado-yx">-</span></li>
-				<li><b>Iy =</b> <span id="resultado-yy">-</span></li>
-			</ul>
-		</div>
-	</section>
+  <section id="app-body">
+		<!--div class="mensaje mensaje-error" id="error-campos-numericos">
+      <p>Todos los campos deben contener un número</p>
+    </div-->        
+    <div id="app-data-area"></div>
+    <div id="app-results-area"></div>
+  </section>
 </div>
 
-<script type="text/template">
+<script type="text/template" id="tmpl-header-area">
+	<div class="holo-actionBar-inside"><h1 class="holo-actionBar-title">Inercia</h1></div>
+</script>
 
+<script type="text/template" id="tmpl-data-area">
+  <p class="clear"><label><span>Número de vértices:</span><input type="number" min="3" id="c_numero_vertices" value="" step="1" required value="3" /></label><input type="button" value="Aplicar" id="inercia-boton-iniciar" /></p>
+          
+  <table>
+    <col width="20%" />
+    <col width="40%" />
+    <col width="40%" />
+    <caption>Vértices</caption>
+    
+    <thead>
+      
+      <tr>
+        <th scope="col">Nudo</th>
+        <th scope="col">X</th>
+        <th scope="col">Y</th>
+      </tr>
+      
+    </thead>
+    
+    <tbody>
+      <tr>
+        <th scope="row"><span class="numero">N</span></th>
+        <td><label for="c_campo_vertice_x_"><span class="hidden">Nudo <span class="numero">N</span>, coordenada X</span><input type="number" id="c_campo_vertice_x_" class="campo-x" required /></label></td>
+        <td><label for="c_campo_vertice_y_"><span class="hidden">Nudo <span class="numero">N</span>, coordenada Y</span><input type="number" id="c_campo_vertice_y_" class="campo-y" required /></label></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="button"><input type="button" value="Calcular" id="inercia-calculate-button" /></p>  
+</script>
+<script type="text/template" id="tmpl-results-area">
+  <h2>Resultados</h2>
+  <ul>
+    <li><b>Xg =</b> <span id="resultado-xg">-</span></li>
+    <li><b>Yg =</b> <span id="resultado-yg">-</span></li>
+    <li><b>S =</b> <span id="resultado-s">-</span></li>
+    <li><b>Ix =</b> <span id="resultado-yx">-</span></li>
+    <li><b>Iy =</b> <span id="resultado-yy">-</span></li>
+  </ul>
 </script>
 
 
@@ -77,8 +76,32 @@
 <script src="assets/js/libs/underscore-1.5.2.min.js"></script>
 <script src="assets/js/jquery.inercia-1.0.js"></script>
 <script>
+  (function() {
+    _.templateSettings = {
+      interpolate: /\{\{(.+?)\}\}/g,
+      evaluate: /\[\[(.+?)\]\]/g
+    };
 
-	$.fn.inercia();
+    _.mixin({
+      tmpl: function (id, context, element) {
+        var html = $.trim($(id).html()).replace(/(\r\n|\n|\r)/gm, ''),
+          parsedTemplate = _.template(html, context);
+        if (!_.isUndefined(element)) {
+          $(element).html(parsedTemplate);
+        } else {
+          return parsedTemplate;
+        }
+      }
+    });
+
+    _.tmpl('#tmpl-header-area', {}, '#app-header-area');
+    _.tmpl('#tmpl-data-area', {}, '#app-data-area');
+    _.tmpl('#tmpl-results-area', {}, '#app-results-area');
+  }());
+
+
+
+  $.fn.inercia();
 </script>
 </body>
 </html>
